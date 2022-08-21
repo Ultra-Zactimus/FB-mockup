@@ -1,4 +1,18 @@
-import Image from "next/image"
+import Image from "next/image";
+import {
+  BellIcon,
+  ChatIcon,
+  ChevronDownIcon,
+  HomeIcon,
+  UserGroupIcon,
+  ViewGridIcon,
+} from "@heroicons/react/solid";
+import {
+  FlagIcon,
+  PlayIcon,
+  SearchIcon,
+  ShoppingCartIcon,
+} from "@heroicons/react/outline";
 
 
 function Header() {
@@ -11,6 +25,10 @@ function Header() {
           height={40}
           layout="fixed"
         />
+        <div>
+
+          <input type="text" placeholder="Search Facebook" />
+        </div>
       </div>
 
       <div>
