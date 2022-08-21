@@ -13,11 +13,13 @@ import {
   SearchIcon,
   ShoppingCartIcon,
 } from "@heroicons/react/outline";
+import HeaderIcon from "./HeaderIcon";
 
 
 function Header() {
   return (
     <header>
+      {/* TOP-LEFT */}
       <div className="flex items-center">
         <Image
           src="https://links.papareact.com/5me"
@@ -31,10 +33,18 @@ function Header() {
         </div>
       </div>
 
-      <div>
-
+      {/* TOP-CENTER */}
+      <div className="flex justify-center flex-grow">
+        <div className="">
+          <HeaderIcon Icon={HomeIcon} />
+          <HeaderIcon Icon={FlagIcon} />
+          <HeaderIcon Icon={PlayIcon} />
+          <HeaderIcon Icon={ShoppingCartIcon} />
+          <HeaderIcon Icon={UserGroupIcon} />
+        </div>
       </div>
 
+      {/* TOP-RIGHT */}
       <div>
 
       </div>
