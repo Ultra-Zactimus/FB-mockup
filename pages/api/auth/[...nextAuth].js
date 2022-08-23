@@ -1,6 +1,7 @@
 import NextAuth from "next-auth"
 import FacebookProvider from "next-auth/providers/facebook";
-export default NextAuth({
+
+const options = {
   // Configure one or more authentication providers
   providers: [
     FacebookProvider({
@@ -9,4 +10,6 @@ export default NextAuth({
     }),
     // ...add more providers here
   ],
-})
+}
+
+export default (req, res) => NextAuth(req, res, options);

@@ -1,19 +1,43 @@
+import { unstable_getServerSession } from 'next-auth/next';
+import { authOptions } from "./api/auth/[...nextauth]";
+import { useSession } from 'next-auth/react';
 import Head from 'next/head'
 import Header from '../components/Header'
+import Login from '../components/Login';
 
 
 export default function Home() {
-  return (
-    <div className=''>
-      <Head>
-        <title>Facebook</title>
-      </Head>
+  const { data: session } = useSession();
 
-      <Header />
+  if (typeof window === 'undefined') return null;
 
-      <main>
+  if (session) {
+    return (
+      <div className=''>
+        <Head>
+          <title>Facebook</title>
+        </Head>
 
-      </main>
-    </div>
-  )
+        <Header />
+
+        <main>
+
+        </main>
+      </div>
+    );
+  } else {
+    return <Login />
+  }
+}
+
+export async function getServerSideProps(context) {
+  return {
+    props: {
+      session: await unstable_getServerSession(
+        context.res,
+        context.req,
+        authOptions
+      ),
+    },
+  }
 }
